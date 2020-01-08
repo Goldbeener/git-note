@@ -32,7 +32,16 @@ tag 指针，比较好理解
 
 平时的修改直接是在工作区；此时的改动不会影响`.git`内的内容，这也是常提示的`changes not staged`                 
 `git add .`命令，将改动的文件（因为文件内容变更，所以hash变了）重新生成了blob，并将改动文件的索引指向到新的blob, 此时`.git/objects`内回新增内容，增加的就是因为改动而产生的新的blob        
-`git commit ` 命令，根据当前的文件结构生成快照`tree`，然后在此`tree`的基础上生成一个新的`commit`; 并且将本地的`HEAD`指针更新指向到新的`commit`上. 如上所述`commit`内存储有前一个`commit`的信息；以此组成一个链式的变更历史。     
+`git commit ` 命令，根据当前的文件结构生成快照`tree`，然后在此`tree`的基础上生成一个新的`commit`; 并且将本地的`HEAD`指针更新指向到新的`commit`上. 如上所述`commit`内存储有前一个`commit`的信息；以此组成一个链式的变更历史。  
+
+# 会产生 commit Objects 的操作
++ `commit`操作
+    - 常规的`git commit -am`
+    - x修订备注信息的`git commit --amend` 
++ `merge`操作
+
+产生了commit objects之后，就算是一次版本的变更了，需要注意更新操作.
+
 
 
 # 思考
