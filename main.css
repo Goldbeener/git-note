@@ -9,3 +9,7 @@ body {
 p {
     z-index: 3;
 }
+
+span {
+    z-index: 4;
+}
