@@ -5,3 +5,7 @@ body {
 .box {
     z-index: 2;
 }
+
+p {
+    z-index: 3;
+}
