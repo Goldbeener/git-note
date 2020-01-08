@@ -1,3 +1,7 @@
 body {
     z-index: 1;
 }
+
+.box {
+    z-index: 2;
+}
