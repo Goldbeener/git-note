@@ -66,6 +66,8 @@ commit 结合暂存区改动的内容，对当前全仓库产生一个快照tree
 + git reset commitId <--soft | --hard>
 + git reset commitId -- file 仅针对指定文件，此时不能够加参数soft或hard
 
+# .gitignore
+添加`.gitignore`文件可以用来忽略某些不希望被托管的文件; 但是必须注意只能忽略的是，没有被track的文件；如果某些文件已被track，那么修改`.gitignore`是无效的.
 
 # 思考
 ## 关于暂存区
