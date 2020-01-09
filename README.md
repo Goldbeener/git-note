@@ -66,6 +66,29 @@ commit 结合暂存区改动的内容，对当前全仓库产生一个快照tree
 + git reset commitId <--soft | --hard>
 + git reset commitId -- file 仅针对指定文件，此时不能够加参数soft或hard
 
+## merge
+不同分支间的合并，       
+合并之前，当前所在的分支必须是干净的，即当前所在的分支工作区、暂存区都是干净的，与仓库是一致的;     
+```bash
+# 当前所在分支假定是featA
+git merge master
+```
+合并可能出现以下三种情况:     
+1. master ---> commitX... ---> featA
+merge目标分支master是当前分支的祖先节点；那么本次分支什么都不做
+
+2. featA ----> commitX... ---> master
+merge 的目标分支是当前分支的 后辈分支， 那么这是一次`fast-forward`合并，只是简单的指针移动，生成一次新的提交
+
+3. commitA ----> commitX.. ---> master
+    |____  ----> commitY.. ---> featA
+
+两个分支是分叉的，那么是一次比较复杂的合并
+公共祖先节点commitA + master + featA 先进行一次三方合并     
+如果有冲突，解决冲突，然后生成一次新的commit完成合并    
+
+
+
 # .gitignore
 添加`.gitignore`文件可以用来忽略某些不希望被托管的文件; 但是必须注意只能忽略的是，没有被track的文件；如果某些文件已被track，那么修改`.gitignore`是无效的.
 
