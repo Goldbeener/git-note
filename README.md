@@ -81,17 +81,22 @@ commit 结合暂存区改动的内容，对当前全仓库产生一个快照tree
 git merge master
 ```
 合并可能出现以下三种情况:     
-1. master ---> commitX... ---> featA
+1. master ---> commitX... ---> featA        
+
 merge目标分支master是当前分支的祖先节点；那么本次分支什么都不做
 
 2. featA ----> commitX... ---> master
+
 merge 的目标分支是当前分支的 后辈分支， 那么这是一次`fast-forward`合并，只是简单的指针移动，生成一次新的提交
 
 3. commitA ----> commitX.. ---> master
+
     |____  ----> commitY.. ---> featA
 
 两个分支是分叉的，那么是一次比较复杂的合并
-公共祖先节点commitA + master + featA 先进行一次三方合并     
+
+公共祖先节点commitA + master + featA 先进行一次三方合并 
+    
 如果有冲突，解决冲突，然后生成一次新的commit完成合并    
 
 # cherry-pick 
